@@ -8,9 +8,9 @@
 
 {% block header %}
     <div class="header-menu">
-        <a href="#" onclick="toggle('signin')">Sign in</a>
+        <a href="#" onclick="toggle('signup')">Sign in</a>
         or
-        <a href="#" onclick="toggle('signup')">Sign up</a>
+        <a href="#" onclick="toggle('signin')">Sign up</a>
     </div>
 {% endblock %}
 
@@ -88,12 +88,6 @@
         </ul>
     </div>
 
-    <div id="bezbab" title='Функция "Без баб"'>
-        <h1 style="text-align: center;">
-            <strong>Ты баба?</strong>
-        </h1>
-    <div>
-
     <script>
         $(function(){$('#dialog').dialog({
             buttons: [{text: "Close", click: function() {$(this).dialog("close")}}],
@@ -108,21 +102,5 @@
                 $('#dialog').dialog("open")
             }
         }));
-    </script>
-
-    <script>
-        $(function(){$('#bezbab').dialog({
-            buttons: [
-                {text: "Да", click: function() {window.open('','_self').close()}},
-                {text: "Нет", click: function() {$(this).dialog("close")}}
-            ],
-            autoOpen: false,
-            draggable: false,
-            modal: true
-        })});
-
-        function bezbab() {
-            $('#bezbab').dialog("open");
-        };
     </script>
 {% endblock %}

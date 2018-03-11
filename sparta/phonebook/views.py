@@ -16,8 +16,8 @@ def phonebook(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('authorization'))
 
-    # else:
-    #     return HttpResponseRedirect(reverse('index'))
+    else:
+        return HttpResponseRedirect(reverse('index'))
 
 
 
@@ -31,7 +31,6 @@ def errors(data):
 #-------------------------------------------------------------------------------
 def authorization(request):
     data = {'auth': AuthenticationForm(), 'user': UserCreationForm()}
-    data.update({'name': 'Spartan phonebook'})
     data.update({'uDisplay': 'block'})
     data.update({'aDisplay': 'none'})
     data.update({'errors': ''})
@@ -48,7 +47,6 @@ def authorization(request):
                 return redirect('index')
 
             else:
-                print(auth.errors)
                 data['errors'] = errors(auth.errors)
                 data['aDisplay'] = 'block'
                 data['uDisplay'] = 'none'
@@ -59,10 +57,7 @@ def authorization(request):
                 return redirect('index')
 
             else:
-                print(user.errors)
                 data['errors'] = errors(user.errors)
-                data['aDisplay'] = 'none'
-                data['uDisplay'] = 'block'
 
     return render(request, 'login.html', data)
 

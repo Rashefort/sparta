@@ -21,13 +21,19 @@
     <header>
         <div style="float: left;">
             <a href="#">
-                <img src="{% static 'img/helm.png' %}" alt="Европа"/>
+                <img src="{% static 'img/helm.png' %}" />
             </a>
         </div>
 
         {% block header %}{% endblock %}
 
-        <h1 class="header-title">{{ name }}</h1>
+        <h1 class="header-title">
+            {% if user.is_authenticated %}
+                {{ user }}
+            {% else %}
+                Spartan phonebook
+            {% endif %}
+        </h1>
     </header>
 
 
@@ -54,9 +60,30 @@
 
 
 <!-- EXTRA ================================================================= -->
-    <a id="alert" href="#" style="display: none"></a>
+
+    <div id="bezbab" title='Функция "Без баб"'>
+        <h1 style="text-align: center;">
+            <strong>Ты баба?</strong>
+        </h1>
+    <div>
 
     {% block extra %}{% endblock %}
+
+    <script>
+        $(function(){$('#bezbab').dialog({
+            buttons: [
+                {text: "Да", click: function() {window.open('','_self').close()}},
+                {text: "Нет", click: function() {$(this).dialog("close")}}
+            ],
+            autoOpen: false,
+            draggable: false,
+            modal: true
+        })});
+
+        function bezbab() {
+            $('#bezbab').dialog("open");
+        };
+    </script>
 
 
 <!-- ======================================================================= -->

@@ -1,9 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>Hello, world!</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block css %}
+    <link href="{% static 'css/menu.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block header %}
+    <nav style="float: right;">
+            <ul class="topmenu">
+                <li><a href="#">Menu</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="#">
+                                <i class="icon-download"></i> Download
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="icon-floppy"></i> Save
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="icon-help"></i> Help
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>or</li>
+                <li><a href="{% url 'logout' %}">Exit</a></li>
+            </ul>
+        </nav>
+
+
+
+<!--     <div class="header-menu">
+        <a href="#" onclick="">Menu</a>
+        or
+        <a href="{% url 'logout' %}" style="letter-spacing: 1px">Exit</a>
+    </div> -->
+{% endblock %}
+
+
+{% block section %}
+{% endblock %}
+
+
+{% block extra %}
+{% endblock %}

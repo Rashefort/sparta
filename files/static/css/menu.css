@@ -1,0 +1,46 @@
+nav ul {
+    list-style: none;
+}
+
+nav a {
+    outline: none;
+    display: block;
+    text-decoration: none;
+}
+
+.topmenu > li {
+    display: inline-block;
+    position: relative;
+}
+
+.topmenu > li > a {
+    color: #C8C9CA;
+}
+
+.topmenu li a:hover {
+    color: #FFFFFF;
+}
+
+.submenu {
+    left: -50%;
+    width: 110px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #24292E;
+    border: 1px solid #586069;
+    visibility: hidden;
+    position: absolute;
+}
+
+.submenu li a {
+    line-height: 36px;
+    border-bottom: 1px solid #586069;
+    font-family: 'segoi';
+    font-weight: normal;
+    font-size: 16px;
+    color: #C8C9CA;
+}
+
+.topmenu > li:hover .submenu {
+    visibility: visible;
+}
