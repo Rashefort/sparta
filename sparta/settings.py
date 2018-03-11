@@ -57,7 +57,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
+            os.path.join(BASE_DIR, 'files/template')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'sparta.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'files/db.sqlite3'),
     }
 }
 
@@ -123,8 +123,8 @@ USE_TZ = True
 
 LOGIN_REDIRECT_URL = '/'
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'files/static'),)
+STATIC_URL = '/files/static/'
 
-MEDIA_ROOT = (os.path.join(BASE_DIR, 'media'),)
-MEDIA_URL = '/media/'
+FILES_ROOT = (os.path.join(BASE_DIR, 'files/upload'),)
+FILES_URL = '/files/upload'

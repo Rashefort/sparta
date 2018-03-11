@@ -2,7 +2,8 @@
 from django.db import models
 
 
-class Memo(models.Model):
+
+class Note(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.PROTECT)
     description = models.CharField(max_length=128, help_text='Краткое описание')
     phone = models.CharField(max_length=24, help_text='Номер телефона')

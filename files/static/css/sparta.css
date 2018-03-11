@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'segoi';
+    src: url('../fnt/segoi.ttf');
+}
+
+@font-face {
+    font-family: 'greece';
+    src: url('../fnt/greece.ttf');
+}
+
+html, body {
+    background-image: url("../img/bg.jpg");
+    height: 100%;
+}
+
+
+/* -------------------------------------------------------------------------- */
+header {
+    width: 83.333333%;
+    height: 72px;
+    line-height: 72px;
+    background: #24292E;
+    color: #586069;
+    padding-left: 8.333333%;
+    padding-right: 8.333333%;
+    font-family: segoi;
+    font-weight: bold;
+    position: fixed;
+}
+
+.header-title {
+    margin-top: -4px;
+    font-family: 'greece';
+    font-size: 48px;
+    color: #FAEBD7;
+}
+
+.header-menu {
+    float: right;
+}
+
+.header-menu a, .header-menu a:visited {
+    text-decoration: none;
+    color: #C8C9CA;
+}
+
+.header-menu a:hover, .header-menu a:active {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+
+/* -------------------------------------------------------------------------- */
+section {
+    width: 83.333333%;
+    height: calc(100% - 108px);
+    padding: 72px 8.333333% 36px;
+}
+
+.section-description {
+    width: 60%;
+    padding-top: 8.333333%;
+    font-family: 'segoi';
+    float: left;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 64px;
+    color: #FFFFFF;
+}
+
+.section-text {
+    text-align: justify;
+    font-size: 24px;
+    color: #C8C9CA;
+}
+
+.section-form {
+    padding-top: 8.333333%;
+    font-family: 'segoi';
+    float: right;
+}
+
+.form-area {
+    min-width: 20vw;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #586069;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #24292E;
+    color: #FFFFFF;
+    font-size: 18px;
+}
+
+.form-label {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.form-input {
+    margin-bottom: 20px;
+}
+
+#id_username, #id_password, #id_password1, #id_password2 {
+    width: calc(100% - 20px);
+    padding: 10px 8px 10px 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FAFFBD;
+    font-size: 16px;
+}
+
+.form-button {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 6px;
+    border: 1px solid rgba(27, 31, 35, 0.2);
+    border-radius: 5px;
+    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+    color: #FFFFFF;
+    font-family: 'segoi';
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    outline: 0;
+}
+
+.form-button:hover {
+    background-image: linear-gradient(-180deg, #2fc952 0%, #269f42 90%);
+}
+
+.form-button:active {
+    background-image: linear-gradient(-180deg, #258f3e 0%, #269e42 90%);
+}
+
+
+/* -------------------------------------------------------------------------- */
+footer {
+    bottom: 0px;
+    width: 83.333333%;
+    height: 36px;
+    line-height: 36px;
+    background: #24292E;
+    color: #586069;
+    padding-left: 8.333333%;
+    padding-right: 8.333333%;
+    font-family: segoi;
+    position: fixed;
+}
+
+footer a {
+    border: none;
+    outline: 0;
+}
+
+footer i.icon-github-circled {
+    font-size: 18px;
+    color: #586069;
+}
+
+
+/* -------------------------------------------------------------------------- */
+ul.error {
+    padding-left: 32px;
+}

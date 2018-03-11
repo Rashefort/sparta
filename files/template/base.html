@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spartan phonebook</title>
+    {% load staticfiles %}
+    <link href="{% static 'img/favicon.png' %}" type="image/png" rel="shortcut icon">
+    <link href="{% static 'css/jquery-ui.min.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/fontello.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/sparta.css' %}" type="text/css" rel="stylesheet">
+    {% block css %}{% endblock %}
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/sparta.js' %}"></script>
+</head>
+
+<body>
+
+
+<!-- HEADER ================================================================ -->
+
+    <header>
+        <div style="float: left;">
+            <a href="#">
+                <img src="{% static 'img/helm.png' %}" alt="Европа"/>
+            </a>
+        </div>
+
+        {% block header %}{% endblock %}
+
+        <h1 class="header-title">{{ name }}</h1>
+    </header>
+
+
+<!-- SECTION =============================================================== -->
+
+    <section>
+        {% block section %}{% endblock %}
+    </section>
+
+<!-- FOOTER ================================================================ -->
+
+    <footer>
+        <span style="float: left;">
+            <i class="icon-copyright"></i>
+            2018 rsh@tut.by
+        </span>
+
+        <span style="float: right;">
+            Designed by
+            <a href="#" onclick="bezbab()"><i class="icon-github-circled"></i></a>
+            GitHub
+        </span>
+    </footer>
+
+
+<!-- EXTRA ================================================================= -->
+    <a id="alert" href="#" style="display: none"></a>
+
+    {% block extra %}{% endblock %}
+
+
+<!-- ======================================================================= -->
+</body>
+</html>

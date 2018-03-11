@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block css %}
+{% endblock %}
+
+
+{% block header %}
+    <div class="header-menu">
+        <a href="#" onclick="toggle('signin')">Sign in</a>
+        or
+        <a href="#" onclick="toggle('signup')">Sign up</a>
+    </div>
+{% endblock %}
+
+
+{% block section %}
+    <div class="section-description">
+        <h1 class="section-title">Записная книжка</h1>
+        <p class="section-text">
+            Минимум функционала и ничего лишнего, никаких котиков, ромашек
+            и сердечек, именно здесь настоящий мужчина может хранить телефоны
+            стриптизбара, сауны и Ларисы <nobr>Ивановны (ЖЭК)</nobr>.
+            <br><br>
+            Чтобы ваша жена гарантировано не залезла в вашу телефонную книжку,
+            в код сайта была включена экспериментальная
+            <nobr>функция "Без баб"</nobr>.
+        </p>
+    </div>
+
+    <div class=section-form>
+        <div class="sign" id="signin" style="display: {{ uDisplay }};">
+
+            <div class="form-area">
+                Регистрация
+            </div>
+
+            <div class="form-area">
+                <form action="" method="post">
+                    {% csrf_token %}
+
+                    {% for field in user.visible_fields %}
+                        <div>
+                            <div class="form-label">{{ field.label }}</div>
+                            <div class="form-input">{{ field }}</div>
+                        </div>
+                    {% endfor %}
+
+                    <input class="form-button" type="submit" value="Sign up">
+                    <input type="hidden" name="next" value="{{ next }}">
+                </form>
+            </div>
+        </div> <!-- <div id="signup">  -->
+
+        <div class="sign" id="signup" style="display: {{ aDisplay }};">
+            <div class="form-area">
+                Авторизация
+            </div>
+
+            <div class="form-area">
+                <form action="" method="post">
+                    {% csrf_token %}
+
+                    {% for field in auth.visible_fields %}
+                        <div>
+                            <div class="form-label">{{ field.label }}</div>
+                            <div class="form-input">{{ field }}</div>
+                        </div>
+                    {% endfor %}
+
+                    <input class="form-button" type="submit" value="Sign in">
+                    <input type="hidden" name="next" value="{{ next }}">
+                </form>
+            </div>
+        </div> <!-- <div id="signin">  -->
+
+    </div> <!-- <div class=section-form> -->
+{% endblock %}
+
+
+{% block extra %}
+    <div id="dialog" title="Error:">
+        <ul class="error">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div id="bezbab" title='Функция "Без баб"'>
+        <h1 style="text-align: center;">
+            <strong>Ты баба?</strong>
+        </h1>
+    <div>
+
+    <script>
+        $(function(){$('#dialog').dialog({
+            buttons: [{text: "Close", click: function() {$(this).dialog("close")}}],
+            autoOpen: false,
+            draggable: false,
+            width: 512,
+            modal: true
+        })});
+
+        $(document).ready($(function(){
+            if ($("ul.error").children().length) {
+                $('#dialog').dialog("open")
+            }
+        }));
+    </script>
+
+    <script>
+        $(function(){$('#bezbab').dialog({
+            buttons: [
+                {text: "Да", click: function() {window.open('','_self').close()}},
+                {text: "Нет", click: function() {$(this).dialog("close")}}
+            ],
+            autoOpen: false,
+            draggable: false,
+            modal: true
+        })});
+
+        function bezbab() {
+            $('#bezbab').dialog("open");
+        };
+    </script>
+{% endblock %}
