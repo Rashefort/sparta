@@ -50,29 +50,31 @@
             {% csrf_token %}
             <ul>
                 <li>
-                    <input type="text" name="phone" maxlength="24" autofocus id="id_phone" placeholder="Номер телефона" />
-                    <input type="text" name="note" maxlength="128" id="id_note" placeholder="Комментарий" />
+                    <input type="text" name="phone" maxlength="24" autofocus id="id_phone" placeholder="Номер телефона" onkeypress="enter(event)"/>
+                    <input type="text" name="note" maxlength="128" id="id_note" placeholder="Комментарий" onkeypress="enter(event)"/>
                     <a href='#' onclick="add_note()"><i class="icon-ok"></i></a>
                 </li>
             </ul>
         </form>
     </div>
 
-    <ul id="spartan-table">
-        <li id="li_0" style="display: none">
-            <input type="text" class="input-phone" readonly value="" title=""/>
-            <input type="text" class="input-note" readonly value="" title=""/>
-            <a href='#' id="a_0" onclick=""><i class="icon-cancel"></i></a>
-        </li>
+    <div style="margin-bottom: 66px; overflow: auto;">
+        <ul id="spartan-table">
+            <li id="li_0" style="display: none">
+                <input class="input-phone" type="text" value="" title="" readonly/>
+                <input class="input-note" type="text" value="" title="" readonly/>
+                <a href='#' id="a_0" onclick=""><i class="icon-cancel"></i></a>
+            </li>
 
-        {% for memo in memos %}
-        <li id="li_{{ memo.id }}">
-            <input type="text" class="input-phone" value="{{ memo.phone }}" title="{{ memo.date }}" readonly/>
-            <input type="text" class="input-note" value="{{ memo.note }}" title="{{ memo.date }}" readonly/>
-            <a href='#' id="a_{{ memo.id }}" onclick="del_note({{ memo.id }})"><i class="icon-cancel"></i></a>
-        </li>
-        {% endfor %}
-    </ul>
+            {% for memo in memos %}
+            <li id="li_{{ memo.id }}">
+                <input type="text" class="input-phone" value="{{ memo.phone }}" title="{{ memo.date }}" readonly onkeypress="enter(event)"/>
+                <input type="text" class="input-note" value="{{ memo.note }}" title="{{ memo.date }}" readonly onkeypress="enter(event)"/>
+                <a href='#' id="a_{{ memo.id }}" onclick="del_note({{ memo.id }})"><i class="icon-cancel"></i></a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
 
 
@@ -82,14 +84,12 @@
     </div>
 
     <script>
-        $(function(){$('#dialog').dialog({
+        $(function(){$("#dialog").dialog({
             buttons: [{text: "Close", click: function() {$(this).dialog("close")}}],
             autoOpen: false,
             draggable: false,
-            width: 285,
+            resizable: false,
             modal: true
         })});
     </script>
-
-
 {% endblock %}

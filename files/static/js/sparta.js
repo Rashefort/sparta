@@ -46,6 +46,13 @@ function ajax_del(id) {
 }
 
 
+function enter(event) {
+    if (event.keyCode == 13) {
+        add_note()
+    }
+}
+
+
 function add_note() {
     var phone = document.getElementById("id_phone").value;
     var note = document.getElementById("id_note").value;
@@ -84,8 +91,41 @@ function add_note() {
 
 }
 
+function confirmation(phone, note) {
+    var defer = $.Deferred();
+    $('<div></div>').html(note).dialog({
+        title: phone,
+        autoOpen: true,
+        resizable: false,
+        modal: true,
+        width: 'auto',
+        buttons: {
+            "Удалить": function() {
+                $(this).dialog("close");
+                defer.resolve("true");
+            },
+            "Отмена": function() {
+                $(this).dialog("close");
+                defer.resolve("false");
+            }
+        },
+        close: function () {
+            $(this).remove();
+        }
+    });
+
+    return defer.promise();
+}
+
 
 function del_note(id) {
-    document.getElementById("li_" + id).remove();
-    ajax_del(id);
+    var phone = $("#li_" + id).children(".input-phone").val();
+    var note = $("#li_" + id).children(".input-note").val();
+
+    confirmation(phone, note).then(function(answer) {
+        if(answer=="true"){
+            document.getElementById("li_" + id).remove();
+            ajax_del(id);
+        }
+    });
 }

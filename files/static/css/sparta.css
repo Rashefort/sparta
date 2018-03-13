@@ -190,7 +190,7 @@ ul.error {
 }
 
 #id_phone, #id_note, .input-phone, .input-note {
-    background-color: #586069;
+    background-color: #FFFFF0;
     border-radius: 5px;
     padding: 5px 8px;
     border: 1px solid;
@@ -201,7 +201,7 @@ ul.error {
 }
 
 .input-phone, .input-note {
-    background-color: #24292E;
+    background-color: #303030;
     color: #FFFFFF;
 
 }
