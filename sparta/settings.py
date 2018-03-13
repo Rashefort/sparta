@@ -126,5 +126,5 @@ LOGIN_REDIRECT_URL = '/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'files/static'),)
 STATIC_URL = '/files/static/'
 
-FILES_ROOT = (os.path.join(BASE_DIR, 'files/upload'),)
-FILES_URL = '/files/upload'
+FILES_ROOT = os.path.join(BASE_DIR, 'files')
+FILES_URL = '/files/'
