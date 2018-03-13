@@ -7,6 +7,7 @@ from . import views
 urlpatterns = [
     path('', views.phonebook, name='phonebook'),
     path('login/', views.authorization, name='authorization'),
+    path('download/', views.download, name='download'),
     path('index/', views.index, name='index'),
     path('ajax/', views.ajax, name='ajax'),
     path('txt/', views.txt, name='txt'),

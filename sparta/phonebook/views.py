@@ -118,7 +118,7 @@ def txt(request):
     file = ''
 
     for memo in memos:
-        file = f'{file}{memo.phone}\t{memo.note}\r\n'
+        file = f'{file}{memo.phone}\r\n{memo.note}\r\n\r\n'
 
     response = HttpResponse(bytes(file, encoding='utf-8'), content_type="application/octet-stream")
     response['Content-Disposition'] = f'inline; filename={str(datetime.now())[:-7]}.txt'
@@ -137,3 +137,9 @@ def zip(request):
             return response
 
     raise Http404
+
+
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+def download(request):
+    return render(request, 'download.html')

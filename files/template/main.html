@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block css %}
+    <link href="{% static 'css/menu.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block header %}
+    <nav style="float: right;">
+            <ul class="topmenu">
+                <li><a href="#">Menu</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{% url 'phonebook' %}">
+                                <i class="icon-home"></i> Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" style="color: red">
+                                <i class="icon-download"></i> Download
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'txt' %}">
+                                <i class="icon-floppy"></i> Save
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" style="color: red">
+                                <i class="icon-help"></i> Help
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>or</li>
+                <li><a href="{% url 'logout' %}">Exit</a></li>
+            </ul>
+        </nav>
+{% endblock %}
+
+
+{% block section %}
+    {% block section_main %}{% endblock %}
+{% endblock %}
+
+
+{% block extra %}
+    {% block extra_main %}{% endblock %}
+{% endblock %}

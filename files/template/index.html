@@ -1,50 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'main.html' %}
 {% load staticfiles %}
 
 
-{% block css %}
-    <link href="{% static 'css/menu.css' %}" type="text/css" rel="stylesheet">
-{% endblock %}
-
-
-{% block header %}
-    <nav style="float: right;">
-            <ul class="topmenu">
-                <li><a href="#">Menu</a>
-                    <ul class="submenu">
-                        <li>
-                            <a href="{% url 'phonebook' %}">
-                                <i class="icon-home"></i> Home
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{% url 'zip' %}">
-                                <i class="icon-download"></i> Download
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{% url 'txt' %}">
-                                <i class="icon-floppy"></i> Save
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <i class="icon-help"></i> Help
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>or</li>
-                <li><a href="{% url 'logout' %}">Exit</a></li>
-            </ul>
-        </nav>
-{% endblock %}
-
-
-{% block section %}
+{% block section_main %}
     <div class="spartan-input">
         <form name="spartan" action="{% url 'ajax' %}">
             {% csrf_token %}
@@ -78,7 +36,7 @@
 {% endblock %}
 
 
-{% block extra %}
+{% block extra_main %}
     <div id="dialog" title="Заполните следющие поля:">
         <ul class="error"></ul>
     </div>

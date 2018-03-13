@@ -59,7 +59,7 @@ header {
 section {
     width: 83.333333%;
     height: calc(100% - 108px);
-    padding: 72px 8.333333% 36px;
+    padding: 104px 8.333333% 36px;
 }
 
 .section-description {
@@ -176,7 +176,6 @@ ul.error {
 
 /* -------------------------------------------------------------------------- */
 .spartan-input {
-    margin-top: 32px;
     margin-bottom: 32px;
 }
 
@@ -249,4 +248,10 @@ ul.error {
 .icon-cancel:active {
     background-color: #ac2925;
     border-color: #761c19;
+}
+
+.download {
+    width: calc(100% - 16.666667%);
+    padding: 64px 8.333333% 64px;
+    background-color: #C8C9CA;
 }
