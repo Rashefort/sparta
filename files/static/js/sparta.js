@@ -55,7 +55,7 @@ function add_note() {
         var id = JSON.parse(ajax_add(phone, note, date))["id"];
         var li = $("li#li_0").clone();
 
-        li.attr("id", "li-" + id);
+        li.attr("id", "li_" + id);
         li.css("display", "block");
         li.find(".input-phone").val(phone);
         li.find(".input-note").val(note);
