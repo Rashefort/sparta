@@ -8,4 +8,5 @@ urlpatterns = [
     path('', views.phonebook, name='phonebook'),
     path('login/', views.authorization, name='authorization'),
     path('index/', views.index, name='index'),
+    path('ajax/', views.ajax, name='ajax'),
 ]

@@ -35,20 +35,55 @@
                 <li><a href="{% url 'logout' %}">Exit</a></li>
             </ul>
         </nav>
-
-
-
-<!--     <div class="header-menu">
-        <a href="#" onclick="">Menu</a>
-        or
-        <a href="{% url 'logout' %}" style="letter-spacing: 1px">Exit</a>
-    </div> -->
 {% endblock %}
 
 
 {% block section %}
+    <div class="spartan-input">
+        <form name="spartan" action="{% url 'ajax' %}">
+            {% csrf_token %}
+            <ul>
+                <li>
+                    <input type="text" name="phone" maxlength="24" autofocus id="id_phone" placeholder="Номер телефона" />
+                    <input type="text" name="note" maxlength="128" id="id_note" placeholder="Комментарий" />
+                    <a href='#' onclick="add_note()"><i class="icon-ok"></i></a>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+    <ul id="spartan-table">
+        <li id="li_0" style="display: none">
+            <input type="text" class="input-phone" readonly value="" title=""/>
+            <input type="text" class="input-note" readonly value="" title=""/>
+            <a href='#' id="a_0" onclick=""><i class="icon-cancel"></i></a>
+        </li>
+
+        {% for memo in memos %}
+        <li id="li_{{ memo.id }}">
+            <input type="text" class="input-phone" value="{{ memo.phone }}" title="{{ memo.date }}" readonly/>
+            <input type="text" class="input-note" value="{{ memo.note }}" title="{{ memo.date }}" readonly/>
+            <a href='#' id="a_{{ memo.id }}" onclick="del_note({{ memo.id }})"><i class="icon-cancel"></i></a>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
 
 
 {% block extra %}
+    <div id="dialog" title="Заполните следющие поля:">
+        <ul class="error"></ul>
+    </div>
+
+    <script>
+        $(function(){$('#dialog').dialog({
+            buttons: [{text: "Close", click: function() {$(this).dialog("close")}}],
+            autoOpen: false,
+            draggable: false,
+            width: 285,
+            modal: true
+        })});
+    </script>
+
+
 {% endblock %}

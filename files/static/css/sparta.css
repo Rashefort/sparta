@@ -169,8 +169,84 @@ footer i.icon-github-circled {
     color: #586069;
 }
 
-
-/* -------------------------------------------------------------------------- */
 ul.error {
     padding-left: 32px;
+}
+
+
+/* -------------------------------------------------------------------------- */
+.spartan-input {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.spartan-input ul, ul#spartan-table {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.spartan-input ul li, ul#spartan-table li {
+    list-style-type: none;
+}
+
+#id_phone, #id_note, .input-phone, .input-note {
+    background-color: #586069;
+    border-radius: 5px;
+    padding: 5px 8px;
+    border: 1px solid;
+    border-color: #C8C9CA;
+    font-family: 'segoi';
+    font-size: 16px;
+    outline: 0;
+}
+
+.input-phone, .input-note {
+    background-color: #24292E;
+    color: #FFFFFF;
+
+}
+
+#id_phone, .input-phone {
+    width: calc((100% - 82px) / 9 * 2);
+}
+
+#id_note, .input-note {
+    width: calc((100% - 82px) / 9 * 7);
+}
+
+.icon-ok, .icon-cancel {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background-color: #1d9d74;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-family: 'segoi';
+    font-style: normal;
+    font-size: 16px;
+    color: #ffffff;
+    float: right;
+}
+
+.icon-cancel {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.icon-ok:hover {
+    background-color: #157254;
+    border-color: #0f543e;
+}
+
+.icon-cancel:hover {
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
+
+.icon-ok:active {
+    background-color: #0f543e;
+    border-color: #051c15;
+}
+
+.icon-cancel:active {
+    background-color: #ac2925;
+    border-color: #761c19;
 }

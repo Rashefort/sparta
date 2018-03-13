@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
 from django.contrib import admin
-from .models import Note
+from .models import Memo
 
 
 
-@admin.register(Note)
-class NoteAdmin(admin.ModelAdmin):
-    list_display = ('user', 'phone', 'description')
+@admin.register(Memo)
+class MemoAdmin(admin.ModelAdmin):
+    list_display = ('user', 'phone', 'note', 'ip')
